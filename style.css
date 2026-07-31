@@ -1,0 +1,1810 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 20% 10%,
+            rgba(110, 28, 51, 0.3),
+            transparent 30%),
+        radial-gradient(circle at 80% 70%,
+            rgba(80, 20, 40, 0.2),
+            transparent 35%),
+        #090608;
+
+    color: #f8eeea;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px);
+
+    background-size: 60px 60px;
+
+    pointer-events: none;
+
+    z-index: -3;
+}
+
+button {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+::selection {
+    background: #9f3b58;
+    color: white;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background-decor {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+.bg-heart {
+    position: absolute;
+
+    color: rgba(182, 74, 103, 0.06);
+
+    font-family: serif;
+}
+
+.h1 {
+    font-size: 220px;
+
+    top: 10%;
+    left: -50px;
+
+    transform: rotate(-20deg);
+}
+
+.h2 {
+    font-size: 150px;
+
+    right: 5%;
+    top: 30%;
+}
+
+.h3 {
+    font-size: 100px;
+
+    left: 20%;
+    bottom: 10%;
+}
+
+.h4 {
+    font-size: 250px;
+
+    right: -80px;
+    bottom: -50px;
+
+    transform: rotate(20deg);
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #bd7e8e;
+
+    margin-bottom: 25px;
+}
+
+.section-number {
+    color: #a64b63;
+
+    letter-spacing: 5px;
+
+    font-size: 10px;
+
+    margin-bottom: 20px;
+}
+
+.section-heading {
+    width: min(900px, 90%);
+
+    margin: auto;
+
+    padding: 150px 20px 90px;
+
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    font-size: clamp(42px, 6vw, 72px);
+
+    line-height: 1;
+}
+
+.section-heading h2 span {
+    display: block;
+
+    color: #cd8d9c;
+
+    font-style: italic;
+}
+
+.section-heading>p:last-child {
+    color: #8f777d;
+
+    margin: 25px auto 0;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    padding: 50px 20px;
+}
+
+.intro-glow {
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    background: #721d39;
+
+    border-radius: 50%;
+
+    filter: blur(190px);
+
+    opacity: 0.25;
+}
+
+.intro-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.intro h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.9;
+}
+
+.intro h1 span {
+    display: block;
+
+    color: #d294a3;
+
+    font-style: italic;
+}
+
+.intro-description {
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    color: #967e84;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+}
+
+.main-button {
+    margin-top: 15px;
+
+    padding: 17px 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #f8eeea;
+
+    cursor: pointer;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+
+    transition: 0.4s;
+}
+
+.main-button span {
+    margin-left: 8px;
+
+    font-size: 16px;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+
+    background: #852b47;
+
+    border-color: #852b47;
+
+    box-shadow:
+        0 15px 50px rgba(133, 43, 71, 0.3);
+}
+
+.scroll-bottom {
+    position: absolute;
+
+    bottom: 30px;
+
+    color: #675258;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   INTRO TEDDY
+========================================================= */
+
+.intro-teddy {
+    margin: 0 auto 30px;
+
+    position: relative;
+}
+
+.teddy-placeholder {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.teddy-placeholder>span {
+    font-size: 100px;
+
+    filter:
+        drop-shadow(0 20px 20px rgba(0, 0, 0, 0.3));
+
+    animation: teddyFloat 3s ease-in-out infinite;
+}
+
+.teddy-label {
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    color: #b88e98;
+
+    margin-top: -10px;
+}
+
+.mini-heart {
+    position: absolute;
+
+    color: #c65370;
+
+    animation: heartFloat 2.5s ease-in-out infinite;
+}
+
+.mh1 {
+    top: 10px;
+    left: 35%;
+
+    font-size: 15px;
+}
+
+.mh2 {
+    right: 32%;
+    top: 30px;
+
+    font-size: 25px;
+
+    animation-delay: 0.5s;
+}
+
+.mh3 {
+    left: 30%;
+    top: 60px;
+
+    animation-delay: 1s;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 9vw, 120px);
+
+    font-weight: 500;
+
+    line-height: 0.85;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #d08e9e;
+
+    font-style: italic;
+}
+
+.hero-text {
+    margin-top: 35px;
+
+    color: #9c858b;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+.hero-heart {
+    color: #a93754;
+
+    margin-top: 35px;
+
+    font-size: 25px;
+
+    animation: heartbeat 1.6s infinite;
+}
+
+.hero-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.18;
+}
+
+.glow-left {
+    width: 500px;
+    height: 500px;
+
+    left: -200px;
+
+    background: #9b2c4c;
+}
+
+.glow-right {
+    width: 400px;
+    height: 400px;
+
+    right: -150px;
+    bottom: 0;
+
+    background: #621832;
+}
+
+.hero-teddy {
+    position: absolute;
+
+    right: 7%;
+    bottom: 7%;
+
+    z-index: 3;
+}
+
+.teddy-couple {
+    flex-direction: row;
+
+    gap: 5px;
+}
+
+.teddy-couple>span {
+    font-size: clamp(55px, 7vw, 100px);
+}
+
+.couple-heart {
+    color: #c54b68;
+
+    font-size: 25px !important;
+
+    animation: heartbeat 1.5s infinite !important;
+}
+
+.speech-bubble {
+    position: absolute;
+
+    top: -45px;
+    left: 25%;
+
+    white-space: nowrap;
+
+    background: #f1dfd5;
+
+    color: #602638;
+
+    border-radius: 20px 20px 20px 4px;
+
+    padding: 10px 18px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.speech-bubble span {
+    color: #a73b57;
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #69565b;
+
+    letter-spacing: 4px;
+
+    font-size: 8px;
+}
+
+.scroll-indicator div {
+    width: 1px;
+    height: 35px;
+
+    margin: 10px auto 0;
+
+    background:
+        linear-gradient(#92344e,
+            transparent);
+}
+
+
+/* =========================================================
+   LOVE CARDS
+========================================================= */
+
+.love-cards {
+    width: min(1100px, 90%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    padding-bottom: 160px;
+}
+
+.love-card {
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 40px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.01));
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.4s,
+        border-color 0.4s,
+        box-shadow 0.4s;
+}
+
+.love-card:hover {
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(190, 76, 103, 0.3);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+.card-number {
+    color: #685258;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+}
+
+.card-icon {
+    margin: 55px 0 25px;
+
+    color: #b94361;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 40px;
+}
+
+.teddy-icon {
+    font-size: 50px;
+
+    filter:
+        drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
+}
+
+.love-card h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 36px;
+
+    font-weight: 500;
+
+    margin-bottom: 18px;
+}
+
+.love-card p {
+    color: #8f787e;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   TEDDY STORY
+========================================================= */
+
+.teddy-story {
+    position: relative;
+
+    width: min(1100px, 90%);
+
+    min-height: 650px;
+
+    margin: 20px auto 150px;
+
+    padding: 70px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        radial-gradient(circle at 15% 50%,
+            rgba(122, 33, 58, 0.2),
+            transparent 40%),
+        rgba(255, 255, 255, 0.015);
+
+    overflow: hidden;
+}
+
+.story-glow {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: 0;
+
+    background: #76213c;
+
+    filter: blur(160px);
+
+    opacity: 0.2;
+}
+
+.story-illustration {
+    position: relative;
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+.big-teddy-couple {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    animation: teddyFloat 4s ease-in-out infinite;
+}
+
+.big-teddy-couple>span:not(.big-heart) {
+    font-size: clamp(100px, 12vw, 170px);
+
+    filter:
+        drop-shadow(0 25px 30px rgba(0, 0, 0, 0.3));
+}
+
+.big-heart {
+    color: #bb405e;
+
+    font-size: 35px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.story-illustration p {
+    color: #826b71;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    font-size: 18px;
+}
+
+.story-heart {
+    position: absolute;
+
+    color: #b53d5b;
+
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+.sh1 {
+    left: 10%;
+    top: 10%;
+
+    font-size: 20px;
+}
+
+.sh2 {
+    right: 5%;
+    top: 20%;
+
+    font-size: 35px;
+
+    animation-delay: 0.6s;
+}
+
+.sh3 {
+    right: 20%;
+    bottom: 15%;
+
+    animation-delay: 1.2s;
+}
+
+.story-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.story-content h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(45px, 5vw, 70px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+}
+
+.story-content h2 span {
+    display: block;
+
+    color: #cb8999;
+
+    font-style: italic;
+}
+
+.story-description {
+    color: #917b81;
+
+    margin-top: 30px;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+}
+
+.little-note {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 15px 20px;
+
+    border-left: 2px solid #9f3a55;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #ae9299;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    font-size: 18px;
+}
+
+.little-note span {
+    color: #c54c69;
+
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote-section {
+    min-height: 80vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+.quote-mark {
+    height: 75px;
+
+    color: #71273c;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 110px;
+}
+
+.quote-section h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 6vw, 75px);
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    line-height: 1;
+}
+
+.quote-section h2 span {
+    color: #c78998;
+}
+
+.quote-section p {
+    margin-top: 25px;
+
+    color: #816b71;
+
+    letter-spacing: 5px;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.notes-section {
+    padding-bottom: 180px;
+}
+
+.notes-grid {
+    width: min(900px, 90%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+.love-note {
+    min-height: 170px;
+
+    padding: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    transition: 0.4s;
+}
+
+.love-note:hover {
+    transform:
+        translateY(-5px) rotate(-1deg);
+
+    background:
+        rgba(120, 35, 58, 0.12);
+
+    border-color:
+        rgba(181, 67, 94, 0.25);
+}
+
+.love-note:nth-child(even):hover {
+    transform:
+        translateY(-5px) rotate(1deg);
+}
+
+.love-note span {
+    color: #bb4561;
+
+    font-size: 30px;
+}
+
+.love-note p {
+    color: #b3989f;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 23px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CUTE BREAK
+========================================================= */
+
+.cute-break {
+    min-height: 75vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 100px 20px;
+}
+
+.cute-teddy {
+    font-size: 130px;
+
+    animation: teddyFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 25px 30px rgba(0, 0, 0, 0.3));
+}
+
+.floating-letter {
+    position: absolute;
+
+    font-size: 50px;
+
+    transform: translate(90px, -80px) rotate(10deg);
+
+    animation: letterFloat 2.5s ease-in-out infinite;
+}
+
+.cute-break h2 {
+    margin-top: 20px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 60px;
+
+    font-style: italic;
+
+    font-weight: 500;
+}
+
+.cute-break p {
+    color: #b9959e;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 24px;
+}
+
+.cute-break>span {
+    margin-top: 10px;
+
+    color: #735e64;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   LETTER SECTION
+========================================================= */
+
+.letter-section {
+    min-height: 100vh;
+
+    padding-bottom: 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-section .section-heading {
+    padding-top: 100px;
+}
+
+.envelope-area {
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+
+    width: 340px;
+    height: 220px;
+
+    margin: auto;
+
+    transition: transform 0.5s;
+}
+
+.envelope-area:hover .envelope {
+    transform:
+        translateY(-10px) rotate(-1deg);
+}
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    background: #bd927f;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.paper-preview {
+    position: absolute;
+
+    width: 280px;
+    height: 180px;
+
+    left: 30px;
+    top: -20px;
+
+    background: #efe2d4;
+
+    color: #633246;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+}
+
+.paper-preview small {
+    margin-top: 5px;
+
+    color: #9d7780;
+
+    font-size: 15px;
+
+    font-style: italic;
+}
+
+.envelope-left {
+    position: absolute;
+
+    z-index: 3;
+
+    width: 0;
+    height: 0;
+
+    border-top: 110px solid transparent;
+    border-bottom: 110px solid transparent;
+    border-left: 180px solid #aa7d6d;
+}
+
+.envelope-right {
+    position: absolute;
+
+    right: 0;
+
+    z-index: 3;
+
+    width: 0;
+    height: 0;
+
+    border-top: 110px solid transparent;
+    border-bottom: 110px solid transparent;
+    border-right: 180px solid #b98a77;
+}
+
+.envelope-bottom {
+    position: absolute;
+
+    bottom: 0;
+
+    z-index: 4;
+
+    width: 0;
+    height: 0;
+
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 130px solid #c09682;
+}
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+
+    z-index: 5;
+
+    width: 0;
+    height: 0;
+
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 125px solid #d0a591;
+
+    transform-origin: top;
+
+    transition: transform 0.7s;
+}
+
+.wax-seal {
+    position: absolute;
+
+    z-index: 6;
+
+    left: 50%;
+    top: 92px;
+
+    transform: translateX(-50%);
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #7d2942;
+
+    color: #e2a8b5;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+
+    transition: 0.5s;
+}
+
+.envelope-area:hover .wax-seal {
+    transform:
+        translateX(-50%) scale(1.1);
+}
+
+.open-hint {
+    margin-top: 35px;
+
+    color: #755e64;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   LETTER MODAL
+========================================================= */
+
+.letter-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    overflow-y: auto;
+
+    background:
+        rgba(5, 3, 4, 0.94);
+
+    backdrop-filter: blur(15px);
+}
+
+.letter-modal.open {
+    display: flex;
+}
+
+.letter-paper {
+    width: min(650px, 100%);
+
+    margin: auto;
+
+    padding: 70px;
+
+    background:
+        linear-gradient(135deg,
+            #f2e7dc,
+            #eadbcd);
+
+    color: #402b31;
+
+    font-family: "Cormorant Garamond", serif;
+
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.6);
+
+    animation: openLetter 0.8s ease;
+}
+
+.letter-date {
+    text-align: right;
+
+    color: #94757c;
+
+    font-style: italic;
+}
+
+.letter-paper h2 {
+    margin: 30px 0;
+
+    color: #532e39;
+
+    font-size: 48px;
+
+    font-weight: 500;
+}
+
+.letter-paper>p {
+    margin-bottom: 22px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+}
+
+.letter-highlight {
+    margin-top: 35px;
+
+    color: #842e47;
+
+    font-size: 25px !important;
+
+    font-style: italic;
+}
+
+.letter-signature {
+    margin-top: 45px;
+
+    font-size: 18px;
+}
+
+.letter-signature span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #792a42;
+
+    font-size: 32px;
+
+    font-style: italic;
+}
+
+.close-letter {
+    position: fixed;
+
+    top: 20px;
+    right: 30px;
+
+    z-index: 101;
+
+    border: none;
+
+    background: transparent;
+
+    color: #eadde0;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.close-letter:hover {
+    color: #cf7087;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-section {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.final-teddy {
+    position: relative;
+
+    margin-bottom: 45px;
+}
+
+.hugging-teddies {
+    display: flex;
+
+    align-items: center;
+
+    font-size: clamp(75px, 10vw, 130px);
+
+    animation: teddyFloat 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 30px 35px rgba(0, 0, 0, 0.35));
+}
+
+.hugging-teddies span {
+    color: #b93e5b;
+
+    font-size: 30px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.final-heart {
+    position: absolute;
+
+    color: #c84c69;
+
+    animation: heartFloat 2.5s ease-in-out infinite;
+}
+
+.fh1 {
+    left: 10%;
+    top: 0;
+
+    font-size: 20px;
+}
+
+.fh2 {
+    right: 5%;
+    top: -20px;
+
+    font-size: 35px;
+
+    animation-delay: 0.5s;
+}
+
+.fh3 {
+    left: 50%;
+    top: -45px;
+
+    animation-delay: 1s;
+}
+
+.final-section h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+.final-section h2 span {
+    display: block;
+
+    color: #c98998;
+
+    font-style: italic;
+}
+
+.final-message {
+    margin-top: 30px;
+
+    color: #91787f;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-size: 10px;
+}
+
+.infinity {
+    margin-top: 30px;
+
+    color: #79293f;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 75px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: #665359;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.04);
+
+    font-size: 11px;
+}
+
+footer span {
+    color: #aa3b57;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   JS HEARTS
+========================================================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -40px;
+
+    z-index: 0;
+
+    color: rgba(192, 71, 99, 0.22);
+
+    pointer-events: none;
+
+    animation: floatingHeart linear forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes teddyFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(-15px);
+
+        opacity: 1;
+    }
+
+}
+
+@keyframes letterFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(90px, -80px) rotate(10deg);
+    }
+
+    50% {
+        transform:
+            translate(90px, -95px) rotate(3deg);
+    }
+
+}
+
+@keyframes floatingHeart {
+
+    0% {
+        transform:
+            translateY(0) rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh) rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+@keyframes openLetter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(60px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .love-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .love-card {
+        min-height: auto;
+    }
+
+    .teddy-story {
+        grid-template-columns: 1fr;
+
+        padding: 70px 30px;
+
+        text-align: center;
+    }
+
+    .story-description {
+        max-width: 500px;
+
+        margin:
+            30px auto 0;
+    }
+
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-teddy {
+        right: 15px;
+        bottom: 60px;
+
+        opacity: 0.65;
+    }
+
+    .speech-bubble {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .intro h1 {
+        font-size: 55px;
+    }
+
+    .hero {
+        padding:
+            100px 15px 150px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+    .hero-text br {
+        display: none;
+    }
+
+    .hero-teddy {
+        position: absolute;
+
+        right: 50%;
+
+        transform: translateX(50%);
+
+        bottom: 45px;
+    }
+
+    .teddy-couple>span {
+        font-size: 55px;
+    }
+
+    .couple-heart {
+        font-size: 18px !important;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .section-heading {
+        padding:
+            110px 15px 70px;
+    }
+
+    .teddy-story {
+        width: 92%;
+
+        padding:
+            60px 20px;
+    }
+
+    .big-teddy-couple>span:not(.big-heart) {
+        font-size: 95px;
+    }
+
+    .big-heart {
+        font-size: 25px;
+    }
+
+    .love-note {
+        min-height: 140px;
+
+        padding: 25px;
+    }
+
+    .cute-teddy {
+        font-size: 100px;
+    }
+
+    .envelope {
+        transform: scale(0.8);
+
+        margin:
+            -20px auto;
+    }
+
+    .envelope-area:hover .envelope {
+        transform:
+            scale(0.8) translateY(-8px);
+    }
+
+    .letter-paper {
+        padding:
+            50px 25px;
+    }
+
+    .letter-paper h2 {
+        font-size: 40px;
+    }
+
+    .letter-paper>p {
+        font-size: 18px;
+    }
+
+    .hugging-teddies {
+        font-size: 75px;
+    }
+
+}
